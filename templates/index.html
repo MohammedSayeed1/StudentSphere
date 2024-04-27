@@ -1,0 +1,614 @@
+
+ <!DOCTYPE html>
+ <html lang="en">
+ 
+ <head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/static/style.css">
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap JS (jQuery and Popper.js are also required) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ 
+   <title>StudentSphere</title>
+ </head>
+ 
+ <body>
+   <nav class="navbar navbar-expand-lg bg-body-tertiary menubar">
+     <div class="container-fluid navdiv">
+ 
+       <a class="navbar-brand"  >𝑆𝑡𝑢𝑑𝑒𝑛𝑡𝑆𝑝ℎ𝑒𝑟𝑒</a>
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+           <!-- <img src="/assests/img/logo1.jpg" alt="" height="25" style="margin-top: 20px;"> -->
+           <li class="nav-item" role="presentation">
+             <a class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" role="tab"
+               aria-controls="pills-home" aria-selected="true">Home</a>
+           </li>
+           <li class="nav-item" role="presentation">
+             <a class="nav-link" id="pills-about-tab" data-bs-toggle="pill" data-bs-target="#pills-about" type="a"
+               role="tab" aria-controls="pills-about" aria-selected="false"  href="/about">About Us!</a>
+           </li>
+           <li class="nav-item" role="presentation">
+             <a class="nav-link" id="pills-project-tab" data-bs-toggle="pill" data-bs-target="#pills-project" type="a"
+               role="tab" aria-controls="pills-project" aria-selected="false" href="/project">Projects</a>
+           </li>
+           <li class="nav-item" role="presentation">
+             <a class="nav-link" id="pills-quiz-tab" data-bs-toggle="pill" data-bs-target="#pills-quiz" type="a"
+               role="tab" aria-controls="pills-quiz" aria-selected="false" href="/quiz">Quiz</a>
+           </li>
+           <li class="nav-item" role="presentation">
+             <a class="nav-link" id="pills-forum-tab" data-bs-toggle="pill" data-bs-target="#pills-forum" type="a"
+               role="tab" aria-controls="pills-forum" aria-selected="false">Student Forum</a>
+           </li>
+           <li class="nav-item" role="presentation">
+             <a class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="a"
+               role="tab" aria-controls="pills-contact" aria-selected="false" href="/contact">Contact Us</a>
+           </li>
+         </ul>
+ 
+ 
+       </div>
+     </div>
+     <button class="navbutton">
+       
+ 
+       <a href="/login" class="logout"><i class="bx bx-log-out-circle"></i>Logout</a>
+     </button>
+     <!-- <button class="navbutton"><a href="admin.html">Admin</a></button> -->
+   </nav>
+   <!-- TABS -->
+   <div class="tab-content" id="pills-tabContent">
+     <!-- HOME TAB -->
+     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"
+       tabindex="0">
+ 
+       <div class="banner">
+         <div class=" alert d-block px-3 py-2 text-center text-bold offer">
+           <a href="#" class="text-decoration-none alrtext">Discover sentiment analysis! Click the Project tab for
+             insightful emotion analysis, guiding you toward a deeper self-understanding and well-being.</a> 
+         </div>
+ 
+ 
+         <div class="text-container">
+           <h1 id="website-name">StudentSphere</h1>
+           <h2 id="slogan">Fostering Peace, Nurturing Minds</h2>
+           <p id="additional-text">Welcome to StudentSphere, a sanctuary dedicated to students' mental health.<br>
+             Discover resources, support, and a caring community as we navigate the journey towards <br>resilient minds
+             and balanced academic success together.</p>
+         </div>
+       </div>
+       <!-- GAUGE -->
+       <div class="happimeter container">
+         <h1>Happimeter: Measure Your Joy</h1>
+         <h5>Discover the power of happiness with our Happimeter! Gauge your joy with a simple slider, and let the
+           Happimeter reveal <br>your happiness level. Explore the science of well-being today!</h5>
+ 
+       </div>
+       <div id="gauge">
+         <div id="major-ticks">
+           <span>0</span>
+           <span>5</span>
+           <span>10</span>
+         </div>
+         <div id="minor-ticks">
+           <span title="--i:1"></span>
+           <span title="--i:2"></span>
+           <span title="--i:3"></span>
+           <span title="--i:4"></span>
+           <span title="--i:5"></span>
+           <span title="--i:6"></span>
+           <span title="--i:7"></span>
+           <span title="--i:8"></span>
+           <span title="--i:9"></span>
+           <span title="--i:10"></span>
+           <span title="--i:11"></span>
+           <span title="--i:12"></span>
+           <span title="--i:13"></span>
+           <span title="--i:14"></span>
+           <span title="--i:15"></span>
+           <span title="--i:16"></span>
+           <span title="--i:17"></span>
+           <span title="--i:18"></span>
+           <span title="--i:19"></span>
+           <span title="--i:20"></span>
+         </div>
+         <div id="minor-ticks-bottom-mask"></div>
+         <div id="bottom-circle"></div>
+         <svg version="1.1" baseProfile="full" width="190" height="190" xmlns="http://www.w3.org/2000/svg">
+           <linearGradient id="gradient" x1="0" x2="1" y1="0" y2="0">
+             <stop offset="0%" stop-color="#FFC436" />
+             <stop offset="100%" stop-color="#F2F597" />
+           </linearGradient>
+           <path d="M5 95 A80 80 0 0 1 185 95" stroke=url(#gradient) fill="none" stroke-width="10" stroke-linecap="round"
+             stroke-dasharray="0 282.78" />
+         </svg>
+         <div id="center-circle">
+           <span id="name">HAPPIMETER</span>
+           <span id="temperature">-</span>
+         </div>
+         <input type="range" id="range" max="10" min="0" value="5">
+       </div>
+ 
+       <script>
+         const arc = document.querySelector("svg path");
+         const temperature = document.querySelector("#temperature");
+         const range = document.querySelector("#range");
+         range.addEventListener('change', (e) => {
+           temperature.textContent = e.target.value;
+ 
+           const arc_length = arc.getTotalLength();
+           const step = arc_length / (range.max - range.min);
+           const value = (e.target.value - range.min) * step;
+           arc.style.strokeDasharray = `${value} ${arc_length - value}`;
+         })
+       </script>
+ 
+       <!-- STUDENT SPOTLIGHT -->
+       <div class="studentbanner">
+         <h1>Student Spotlight</h1>
+         <h4>a dedicated space where we shine a spotlight on the remarkable talents<br> and inspiring stories of the
+           students. Within this curated section,<br> we showcase the diverse skills, achievements, <br>and journeys of
+           the exceptional student community.</h4>
+         <!-- Button trigger modal -->
+         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+           Know More!
+         </button>
+ 
+         <!-- Modal -->
+         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+           <div class="modal-dialog modal-dialog-centered  modal-xl">
+             <div class="modal-content">
+               <div class="modal-body">
+                 <div class="title text-center text-bold">
+                   <h2><b></b>STUDENT SPOTLIGHT</h2>
+                 </div>
+                 <div class="row">
+ 
+ 
+                   <div class="flip-card col-sm">
+                     <div class="flip-card-inner">
+                       <div class="flip-card-front"><b class="text-bold ">Amanda Southworth</b>
+                         <img class="kmimg" src="/assests/img/KM1.jpg">
+                       </div>
+                       <div class="flip-card-back">
+                         <h5><b>Amanda Southworth</b></h5>
+                         <p><b>Amanda Southworth</b> is a fifteen year old who struggled with mental illness and suicidal
+                           thoughts which inspired her to start coding. She used this outlet as a tool to develop apps
+                           designed to help others stop suffering in silence and find the courage to reach out and
+                           changed their life.</p>
+                         <!-- <p>She is a programmer, designer, and creator of the apps, Anxiety Helper and Verena. She has been coding since she was 10 years old, and created both of her apps when she was just 15. Her apps are designed to provide safety, information and emergency help to those who are struggling with mental illness</p> -->
+                       </div>
+ 
+                     </div>
+                   </div>
+ 
+                   <div class="flip-card col-sm">
+                     <div class="flip-card-inner">
+                       <div class="flip-card-front"><b class="text-bold ">Seema Kumari</b>
+                         <img class="kmimg" src="/assests/img/seema.png">
+                       </div>
+                       <div class="flip-card-back">
+                         <h5><b>Seema Kumari</b></h5>
+                         <p>My parents do not know where Harvard is, Jharkand girl enjoys spotlight after getting Harvard
+                           Scholarship
+                         </p>
+ 
+                       </div>
+ 
+                     </div>
+                   </div>
+                   <div class="flip-card col-sm">
+                     <div class="flip-card-inner">
+                       <div class="flip-card-front"><b class="text-bold ">Akash Vukoti</b>
+                         <img class="kmimg" src="/assests/img/unnamed.jpg">
+                       </div>
+                       <div class="flip-card-back">
+                         <h5><b>Akash Vukoti</b></h5>
+                         <p>Akash Vukoti competed for a record 6 times at the Scripps National Spelling Bee[1] and was
+                           the first-ever first grader to compete in the bee.Vukoti competed in his first spelling bee
+                           when he was 2 years old.[7] He was inducted into American Mensa at the age of 3 and became a
+                           Davidson Young Scholar[8] at the age of 5.[9] He became the first-ever first grader to compete
+                           in the history of the Scripps National Spelling Bee at the age of 6 years, in 2016.
+                         </p>
+ 
+                       </div>
+ 
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+ 
+           </div>
+         </div>
+       </div>
+     </div>
+     <!-- ABOUT TAB -->
+     <div class="tab-pane fade" id="pills-about" role="tabpanel" aria-labelledby="pills-about-tab" tabindex="0">
+       <div class="aboutc container">
+         <h1 class="text-center"><b>About Us!</b></h1>
+         <p>
+           Welcome to Studentsphere, a safe haven on the internet where students can navigate the challenges of mental
+           health in the fast-paced world of today. Studentsphere was founded in 2024 as a result of a common desire to
+           empower and assist students who are coping with stress, anxiety, and other mental health issues.<br>
+ 
+           We at Studentsphere are aware of the particular struggles and demands that students have, such as meeting
+           social and academic expectations. Our main goal is to give students access to resources, community support,
+           and a secure, accepting, and caring environment.<br>
+ 
+         </p>
+ 
+         <h3><b> OUR APPROACH</b></h3>
+         <p><b>1. Supportive Resources:</b> Our selection of resources, which includes articles, manuals, and self-help
+           tools, is broad and designed to address a variety of mental health concerns that are frequently encountered by
+           students. Studentsphere is available to support you through any obstacles you may be facing, including
+           relationship problems, anxiety related to exams, and low self-esteem.<br><br>
+ 
+           <b> 2. Interactive Sessions:</b> Through our interactive sessions, students can participate in live workshops,
+           Q&A sessions, and conversations with peers, counsellors, and mental health specialists. In a safe space,
+           students can explore coping mechanisms and get advice during these sessions that promote empowerment,
+           understanding, and connection.<br><br>
+ 
+           <b>3. Participant Project:</b> Students are encouraged to express themselves in our Project Section by
+           discussing their individual struggles, victories, and experiences related to mental health. Students can shed
+           light on their personal challenges and victories through expressive writing, painting, and multimedia
+           projects, which promotes empathy, understanding, and connections within our community.<br><br>
+ 
+           <b>4. NLP Assessment:</b> We offer customised examinations using our state-of-the-art Natural Language
+           Processing (NLP) tool to determine the extent of students' mental health issues. Our NLP system guides
+           students towards appropriate support services, such as therapy or counselling, based on their unique
+           requirements and stress levels by analysing language patterns and emotional indicators.<br><br>
+ 
+           <b>5. Upcoming Projects:</b> In order to provide fresh and engaging interactive projects and activities
+           targeted at encouraging student resilience and mental wellness, we are constantly developing and growing our
+           platform. Keep an eye out for new features, partnerships, and activities that will enhance your path to
+           comprehensive well-being.<br><br></p>
+ 
+         <h3><b>Join Us:</b></h3>
+ <p>
+         We at Studentsphere are here to help, advise, or just give you a sense of community. Come as you are. Let's work
+         together to eradicate the stigma associated with mental health issues and foster a climate of compassion,
+         understanding, and fortitude among students.
+ 
+         Come along on this life-changing journey towards mental health and wellbeing. You're never alone at
+         Studentsphere, and your well-being matters.<br><br><br>
+ 
+ 
+         Please feel free to alter this draft to better suit the tone and design of your website! Tell me if you require
+         any additional help.<br>
+         </p>
+ 
+       </div>
+     </div>
+     <!-- PROJECT TAB -->
+     <div class="tab-pane fade" id="pills-project" role="tabpanel" aria-labelledby="pills-project-tab" tabindex="0">
+       <div class="container">
+         
+         <h1 class="feeltext"><img class="feel" src="/assests/img/undraw_in_love_6sq2.svg">Express Your Feelings</h1>
+         <textarea id="feelingsInput" placeholder="Write your feelings here..."></textarea>
+ 
+ 
+         <!-- Modal -->
+         <div id="myModal" class="projectmodal2">
+           <div class="projectmodal modal-content">
+             <span class="close" onclick="closeModal()">&times;</span>
+             <form id="userInfoForm" autocomplete="off">
+               <label for="username">Username:</label><br>
+               <input type="text" id="username" name="username"  required><br>
+               <label for="regNumber">Registration Number:</label><br>
+               <input type="text" id="regNumber" name="regNumber" required><br>
+               <label for="batch">Batch:</label><br>
+               <select id="batch" name="batch" required>
+                 <option value="2021">2021</option>
+                 <option value="2022">2022</option>
+                 <option value="2023">2023</option>
+                 <option value="2024">2024</option>
+               </select><br><br>
+               <button type="button" class="modbutton" onclick="submitForm()">Submit</button>
+             </form>
+           </div>
+         </div>
+         
+ 
+         <button class="analyzebutton" onclick="openModal()">Analyze</button>
+     <div id="results"></div>
+         <div id="results"></div>
+       </div>
+   
+   
+       <script>
+         function openModal() {
+         const modal = document.getElementById('myModal');
+         modal.style.display = 'block';
+       }
+     
+       function closeModal() {
+         const modal = document.getElementById('myModal');
+         modal.style.display = 'none';
+       }
+     
+       function submitForm() {
+ 
+         closeModal();
+         const feelingsInput = document.getElementById('feelingsInput').value.toLowerCase();
+           const depressiveWords =  ['despair', 'despairing','depressed', 'despaired', 'grief', 'grieving', 'grieved', 'anguish', 'anguished', 'anguishing', 'melancholy', 'melancholic', 'melancholia', 'desolation', 'desolate', 'desolated', 'desolating', 'despairing', 'despaired', 'despair', 'despairing', 'desperate', 'desperation', 'desperately', 'disconsolate', 'disconsolately', 'forlorn', 'forlornness', 'heartbroken', 'heartbreak', 'heavyhearted', 'heavyheartedly', 'hopelessness', 'hopeless', 'lament', 'lamented', 'lamenting', 'melancholic', 'melancholia', 'mournful', 'mournfully', 'mournfulness', 'pain', 'painful', 'painfully', 'regret', 'regretful', 'regretfully', 'tearful', 'tears', 'tragic', 'tragically', 'tragedy', 'woeful', 'woefully', 'abandoned', 'abandonment', 'alienated', 'alienation', 'bereaved', 'bereavement', 'cheerless', 'cheerlessness', 'crushed', 'crushing', 'defeated', 'defeat', 'desperate', 'desperately', 'desperation', 'disappointed', 'disappointment', 'disheartened', 'disheartenment', 'distressed', 'distress', 'distressing', 'downcast', 'downhearted', 'downheartedly', 'downheartedness', 'gloomy', 'gloom', 'gloominess', 'grief-stricken', 'grief-strickenly', 'helpless', 'helplessness', 'hopeless', 'hopelessly', 'hopelessness', 'hurt', 'hurtful', 'hurtfully', 'hurtfulness', 'isolated', 'isolation', 'loneliness', 'lonely', 'lost', 'loss', 'miserable', 'miserably', 'misery', 'mourning', 'mourn', 'pathetic', 'pathetically', 'pessimistic', 'pessimism', 'powerless', 'powerlessness', 'rejected', 'rejection', 'sadness', 'sad', 'sorrow', 'sorrowful', 'sorrowfully', 'suffer', 'suffering', 'sufferingly', 'suffered', 'unhappy', 'unhappiness', 'unloved', 'unwanted', 'wretched', 'wretchedness', 'agonized', 'agonizing', 'agonizingly', 'anguished', 'anguishing', 'anguishingly', 'broken', 'brokenhearted', 'bitter', 'bitterness', 'dejected', 'dejection', 'deprived', 'deprivation', 'discontented', 'discontentment', 'downtrodden', 'dismayed', 'dismay', 'disillusioned', 'disillusionment', 'forlorn', 'forlornness', 'grieved', 'grieving', 'grievance', 'grievously', 'haunted', 'haunting', 'hopelessness', 'humiliated', 'humiliation', 'inconsolable', 'inconsolably', 'joyless', 'joylessness', 'longing', 'longingly', 'mournful', 'mournfully', 'mournfulness', 'nostalgic', 'nostalgia', 'nostalgically', 'numb', 'numbness', 'oppressed', 'oppression', 'regretful', 'regretfully', 'regretfulness', 'remorseful', 'remorsefully', 'remorsefulness', 'resentful', 'resentfully', 'resentfulness', 'shameful', 'shamefully', 'shamefulness', 'sorrowful', 'sorrowfully', 'sorrowfulness', 'suffering', 'sufferingly', 'suffered', 'tormented', 'torment', 'unappreciated', 'unappreciation', 'unfulfilled', 'unfulfillment', 'vulnerable', 'vulnerability', 'worthless', 'worthlessness', 'yearning', 'yearn', 'yearningly', 'alienation', 'alienated', 'alienating', 'betrayed', 'betrayal', 'condemned', 'condemnation', 'defeated', 'defeatism', 'defeatedly', 'deserted', 'desertion', 'desolate', 'desolately', 'desolation', 'disappointed', 'disappointingly', 'disappointment', 'embarrassed', 'embarrassment', 'excluded', 'exclusion', 'frustrated', 'frustration', 'gloomy', 'gloomily', 'gloominess', 'hollow', 'hollowness', 'humiliated', 'humiliation', 'inadequate', 'inadequacy', 'indifferent', 'indifference', 'insecure', 'insecurity', 'insignificant', 'insignificance', 'invalidated', 'invalidation', 'isolated', 'isolation', 'lonely', 'loneliness', 'lost', 'loss', 'meaningless', 'meaninglessness', 'neglected', 'neglect', 'numb', 'numbness', 'rejected', 'rejection', 'remorseful', 'remorsefulness', 'shameful', 'shamefully', 'shamefulness', 'trapped', 'entrapment', 'unwanted', 'unwantedness', 'useless', 'uselessness', 'victimized', 'victimization', 'weak', 'weakness', 'worthless', 'worthlessness', 'wounded', 'wound'
+       ]; 
+       const stressfulWords = ['stressed', 'stressing', 'stress', 'anxious', 'anxiety', 'anxiously', 'overwhelmed', 'overwhelming', 'tense', 'tension', 'tensely', 'panicked', 'panic', 'panicking', 'worried', 'worry', 'worrying', 'worryingly', 'nervous', 'nervously', 'nervousness', 'pressured', 'pressure', 'pressuring', 'burdened', 'burden', 'burdening', 'strained', 'strain', 'straining', 'exhausted', 'exhaustion', 'exhaustingly', 'fatigued', 'fatigue', 'fatiguing', 'frazzled', 'frazzling', 'overloaded', 'overloading', 'agitated', 'agitation', 'agitating', 'frantic', 'frantically', 'franticness', 'hectic', 'hecticness', 'jittery', 'jitteriness', 'jittering', 'struggling', 'struggle', 'struggled', 'on edge', 'edginess', 'overworked', 'overworking', 'rattled', 'rattling', 'drained', 'draining', 'overwrought', 'overwroughtness', 'under pressure', 'pressure', 'pressurized', 'stretched thin', 'thinly stretched', 'tired', 'tiredness', 'tiring', 'worn out', 'wearing out', 'anxiously', 'anxiousness', 'weary', 'weariness', 'run-down', 'running down', 'overburdened', 'overburdening', 'stretched', 'stretching', 'frustrated', 'frustration', 'frustrating', 'stressed out', 'stressing out', 'harried', 'harassing', 'stressed to the max', 'maximum stress', 'frenzied', 'frenzy', 'frenziedly', 'burned out', 'burnout', 'burning out', 'distracted', 'distracting', 'distractingly', 'fidgety', 'fidgeting', 'restless', 'restlessness', 'restlessly', 'overwrought', 'overwroughtness', 'on the brink', 'brink of stress', 'uneasy', 'uneasiness', 'uneasily', 'edgy', 'edginess', 'edgily', 'pressed for time', 'time pressure', 'under strain', 'strained', 'strain on', 'feeling the heat', 'heated', 'heating up'];
+ 
+           const positiveWords = [
+   'joy', 'joyful', 'joyfully', 'joyous', 'happiness', 'happy', 'happily', 'cheer', 'cheerful', 'cheerfully', 'content', 'contented', 'contentedly', 'pleasure', 'pleasurable', 'enjoy', 'enjoyable', 'enjoyably', 'satisfaction', 'satisfied', 'satisfactorily', 'satisfying', 'delight', 'delightful', 'delightfully', 'bliss', 'blissful', 'blissfully', 'ecstasy', 'ecstatic', 'ecstatically', 'euphoria', 'euphoric', 'euphorically', 'upbeat', 'uplifting', 'uplifted', 'optimism', 'optimistic', 'optimistically', 'hope', 'hopeful', 'hopefully', 'faith', 'faithful', 'faithfully', 'gratitude', 'grateful', 'gratefully', 'appreciate', 'appreciative', 'appreciatively', 'inspiration', 'inspired', 'inspirational', 'inspiringly', 'motivation', 'motivated', 'motivational', 'motivating', 'passion', 'passionate', 'passionately', 'enthusiasm', 'enthusiastic', 'enthusiastically', 'confidence', 'confident', 'confidently', 'strength', 'strong', 'strongly', 'courage', 'courageous', 'courageously', 'determination', 'determined', 'determinedly', 'perseverance', 'persevere', 'persevering', 'perseveringly', 'success', 'successful', 'successfully', 'triumph', 'triumphant', 'triumphantly', 'victory', 'victorious', 'victoriously', 'achievement', 'achieve', 'achieving', 'fulfillment', 'fulfilled', 'fulfilling', 'abundance', 'abundant', 'abundantly', 'prosperity', 'prosperous', 'prosperously', 'blessing', 'blessed', 'blessedly', 'peace', 'peaceful', 'peacefully', 'serenity', 'serene', 'serenely', 'calm', 'calmness', 'calmly', 'relaxation', 'relaxed', 'relaxing', 'comfort', 'comfortable', 'comfortably', 'ease', 'easy', 'easily', 'freedom', 'free', 'freely', 'liberation', 'liberated', 'liberating', 'refresh', 'refreshed', 'refreshing', 'rejuvenation', 'rejuvenated', 'rejuvenating', 'revitalize', 'revitalized', 'revitalizing', 'energy', 'energetic', 'energetically', 'vitality', 'vital', 'vibrant', 'vibrantly', 'health', 'healthy', 'healthily', 'well-being', 'wellness', 'wholesome', 'wholesomely', 'nourishment', 'nourishing', 'nourish', 'nourished', 'spirit', 'spiritual', 'spiritually', 'kindness', 'kind', 'kindly', 'generosity', 'generous'
+         ];
+           const stopwords = ['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', 'your', 'yours', 'yourself', 'yourselves', 'he', 'him', 'his', 'himself', 'she', 'her', 'hers', 'herself', 'it', 'its', 'itself', 'they', 'them', 'their', 'theirs', 'themselves', 'what', 'which', 'who', 'whom', 'this', 'that', 'these', 'those', 'am', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'having', 'do', 'does', 'did', 'doing', 'a', 'an', 'the', 'and', 'but', 'if', 'or', 'because', 'as', 'until', 'while', 'of', 'at', 'by', 'for', 'with', 'about', 'against', 'between', 'into', 'through', 'during', 'before', 'after', 'above', 'below', 'to', 'from', 'up', 'down', 'in', 'out', 'on', 'off', 'over', 'under', 'again', 'further', 'then', 'once', 'here', 'there', 'when', 'where', 'why', 'how', 'all', 'any', 'both', 'each', 'few', 'more', 'most', 'other', 'some', 'such', 'no', 'nor', 'not', 'only', 'own', 'same', 'so', 'than', 'too', 'very', 's', 't', 'can', 'will', 'just', 'don', 'should', 'now', ''];
+         
+           let depressiveCount = 0;
+         let stressfulCount = 0;
+         let positiveCount = 0;
+         let negativeCount = 0;
+ 
+         const words = feelingsInput.split(/\s+/);
+         const filteredWords = words.filter(word => !stopwords.includes(word));
+ 
+         for (const word of filteredWords) {
+             if (depressiveWords.includes(word)) {
+                 depressiveCount++;
+                 negativeCount++;
+             } else if (stressfulWords.includes(word)) {
+                 stressfulCount++;
+                 negativeCount++;
+             } else if (positiveWords.includes(word)) {
+                 positiveCount++;
+             }
+         }
+ 
+         const totalWords = filteredWords.length;
+         const stressLevel = Math.round((stressfulCount / totalWords) * 100);
+         const depressionLevel = Math.round((depressiveCount / totalWords) * 100);
+         const positivityLevel = Math.round((positiveCount / totalWords) * 100);
+ 
+         let therapistAdvice = "";
+         if (depressionLevel >= 50) {
+             therapistAdvice = "High level of depression. Critical mental health support needed.";
+         } else if (depressionLevel >= 10) {
+             therapistAdvice = "You might be experiencing depression. Consider meeting a therapist";
+         } else if (depressionLevel >= 0) {
+             therapistAdvice = "You don't seem to need therapy at this time.";
+         } else {
+             therapistAdvice = "<span class='highlight'>You don't seem t.</span>";
+         }
+ 
+         const results = `
+             <p>Number of depressive words: ${depressiveCount}</p>
+             <p>Number of stressful words: ${stressfulCount}</p>
+             <p>Number of positive words: ${positiveCount}</p>
+             <span class='highlight'>Stress level: ${stressLevel}%</span>
+             <span class='highlight'>Depression level: ${depressionLevel}%</span>
+             <span class='highlight'>Positivity level: ${positivityLevel}%</span>
+             <p>Number of negative words: ${negativeCount}</p>
+             <p>${therapistAdvice}</p>
+         `;
+ 
+         // Display the results
+         document.getElementById('results').innerHTML = results;
+         const username = document.getElementById('username').value;
+     const regNumber = document.getElementById('regNumber').value;
+     const batch = document.getElementById('batch').value;
+       
+ 
+         // Send the results to the PHP script using AJAX
+         $.ajax({
+             type: "POST",
+             
+             url: "http://localhost/emotionwebsite/analysis.php", // Change this to your PHP script URL
+             data: {
+               username: username,
+             regNumber: regNumber,
+             batch: batch,
+                 feelingsInput: feelingsInput,
+                 positivityLevel: positivityLevel,
+                 depressionLevel: depressionLevel,
+                 stressLevel: stressLevel,
+                 positiveCount: positiveCount,
+                 negativeCount: negativeCount,
+                 therapistAdvice: therapistAdvice
+             },
+             success: function(response) {
+               console.log("AJAX request successful:");
+         console.log("Sent data:", {
+           username: username,
+                 regNumber: regNumber,
+                 batch: batch,
+             feelingsInput: feelingsInput,
+             positivityLevel: positivityLevel,
+             depressionLevel: depressionLevel,
+                 stressLevel: stressLevel,
+                 positiveCount: positiveCount,
+                 negativeCount: negativeCount,
+                 therapistAdvice: therapistAdvice
+         });
+     },
+             
+             error: function(xhr, status, error) {
+                 console.error("Error storing analysis data:", error);
+                 // Optionally, you can display an error message or perform other actions here
+             }
+         });
+     }    
+       </script>
+ 
+       <style>
+         .highlight {
+           background-color: yellow;
+           padding: 0.2em;
+           border-radius: 4px;
+         }
+       </style>
+ 
+ 
+     </div>
+     <!-- QUIZ TAB -->
+     <div class="tab-pane fade" id="pills-quiz" role="tabpanel" aria-labelledby="pills-quiz-tab" tabindex="0">
+       <div class="zzz" >
+         <div class="container1">
+           <h2 style="font-style: italic;"> Quiz</h2><br>
+           <form id="quizForm">
+             <label for="q1">Question 1: How do you feel today?</label>
+             <input type="radio" name="q1" value="happy"> Happy<br>
+             <input type="radio" name="q1" value="sad"> Sad<br>
+             <input type="radio" name="q1" value="anxious"> Anxious<br>
+             <input type="radio" name="q1" value="neutral"> Neutral<br><br>
+             
+             <label for="q2">Question 2: Do you feel supported by friends, family, or colleagues?</label>
+             <input type="radio" name="q2" value="happy">Yes, very supported<br>
+             <input type="radio" name="q2" value="sad"> Somewhat supported<br>
+             <input type="radio" name="q2" value="anxious"> Not very supported<br>
+             <input type="radio" name="q2" value="neutral"> Not at all supported<br><br>
+   
+             <label for="q3">Question 3: Are you satisfied with your current workload?</label>
+             <input type="radio" name="q3" value="happy">Yes, it's manageable<br>
+             <input type="radio" name="q3" value="sad"> No, it's too much<br>
+             <input type="radio" name="q3" value="anxious"> No, it's too little<br>
+             <input type="radio" name="q3" value="neutral"> I'm unsure<br><br>
+   
+             <label for="q4">Question 4: How would you describe your sleep quality last night?</label>
+             <input type="radio" name="q4" value="happy">Excellent<br>
+             <input type="radio" name="q4" value="sad"> Good<br>
+             <input type="radio" name="q4" value="anxious">Fair<br>
+             <input type="radio" name="q4" value="neutral">Poor<br><br>
+   
+             <label for="q5">Question 5: Do you feel motivated to work/study today?</label>
+             <input type="radio" name="q5" value="happy">Yes, very motivated<br>
+             <input type="radio" name="q5" value="sad">Somewhat motivated<br>
+             <input type="radio" name="q5" value="anxious">Not very motivated<br>
+             <input type="radio" name="q5" value="neutral">Not at all motivated<br><br>
+   
+   
+             <button type="button" class="button" onclick="submitQuiz()">Submit</button>
+           </form>
+   
+          
+   
+   
+         </div>
+       </div>
+       <script>
+         function submitQuiz() {
+           // Check if all questions have been answered
+           var allQuestionsAnswered = true;
+           var form = document.getElementById("quizForm");
+           var questions = form.getElementsByTagName("input");
+           for (var i = 1; i <= 5; i++) { // Assuming there are 5 questions
+             var answered = false;
+             for (var j = 0; j < questions.length; j++) {
+               if (questions[j].type === "radio" && questions[j].name === "q" + i && questions[j].checked) {
+                 answered = true;
+                 break;
+               }
+             }
+             if (!answered) {
+               allQuestionsAnswered = false;
+               break;
+             }
+           }
+       
+           // If all questions are answered, submit the form
+           if (allQuestionsAnswered) {
+             // You can send the answers to your backend for sentiment analysis
+             
+             // For now, let's just simulate sending data to backend by clearing the form
+       
+             // Clear the form (remove selected radio buttons)
+             for (var i = 0; i < questions.length; i++) {
+               if (questions[i].type === "radio" && questions[i].checked) {
+                 questions[i].checked = false;
+               }
+             }
+       
+             // Show success message
+             var container = document.querySelector(".container1");
+             container.innerHTML = "<h2>Answers saved successfully!</h2>";
+           } else {
+             alert("Please answer all questions before submitting.");
+           }
+         }
+       </script>
+     </div>
+     <!-- STUDENT FORUM TAB -->
+ 
+     <!-- CONTACT TAB -->
+  
+ <!-- FOOTER -->
+     <footer class="site-footer">
+       <div class="container">
+         <div class="row">
+ 
+           <div class="col-sm-4">
+             <ul class="footer-info">
+ 
+               <li>
+                 <h5>StudentSphere</h5>
+                 <p>Vellore Institute Of Technology, Chennai</p>
+                 <p>Kelambakkam-Vandalur road</p>
+                 <p>Phone Number: 7200910451</p>
+               </li>
+             </ul>
+           </div>
+           <div class="col-sm-4">
+             <div class="social-media-icons">
+               <a href="https://www.instagram.com/your-instagram-handle" target="_blank" class="icon-instagram"></a>
+               <a href="https://twitter.com/your-twitter-handle" target="_blank" class="icon-twitter"></a>
+               <a href="https://www.facebook.com/your-facebook-page" target="_blank" class="icon-facebook"></a>
+             </div>
+           </div>
+           <div class="col-sm-4">
+             <ul class="help">
+               <li>
+                 <h5 class="text-white">HelpDesk:</h5>
+                 <p>044-20842000, 044-24800222</p>
+                 <p>Student.sphere@gmail.com</p>
+               </li>
+             </ul>
+           </div>
+ 
+           <div class="copyr">
+             <p>&copy; StudentSphere. All rights reserved.</p>
+             <ul class="text-white">
+               <p>Visitors Count: <span id="visitorCount">0</span></p>
+             </ul>
+           </div>
+         </div>
+       </div>
+ 
+ 
+ 
+       <script>
+         // Function to increment visitor count
+         function incrementVisitorCount() {
+           if (typeof (Storage) !== "undefined") {
+             if (localStorage.visitorCount) {
+               localStorage.visitorCount = Number(localStorage.visitorCount) + 1;
+             } else {
+               localStorage.visitorCount = 1;
+             }
+             document.getElementById("visitorCount").innerHTML = localStorage.visitorCount;
+           } else {
+             console.log("Sorry, your browser does not support web storage...");
+           }
+         }
+ 
+         // Call the function when the page loads
+         window.onload = function () {
+           incrementVisitorCount();
+         };
+       </script>
+     </footer>
+ </body>
+ <script src="/assests/bootstrap/js/bootstrap.min.js"></script>
+ <script src="/assests/js/jquery.min.js"></script>
+ <script src="/assests/js/darkmode.js"></script>
+ <script src="/assests/aos/aos.js"></script>
+ 
+ </html>
