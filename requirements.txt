@@ -45,7 +45,7 @@ dash-html-components==2.0.0
 dash-table==5.0.0
 dask==2024.2.1
 dataclasses-json==0.6.7
-dataprep==0.4.5
+dataprep==0.4.4
 datasketch==1.6.4
 datasketches==5.0.1
 debugpy==1.6.7
