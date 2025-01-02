@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Text Analyzer</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap JS (jQuery and Popper.js are also required) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary menubar">
+    <div class="container-fluid navdiv">
+
+      <a class="navbar-brand">𝑆𝑡𝑢𝑑𝑒𝑛𝑡𝑆𝑝ℎ𝑒𝑟𝑒</a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+          <!-- <img src="/assests/img/logo1.jpg" alt="" height="25" style="margin-top: 20px;"> -->
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" role="tab"
+              aria-controls="pills-home" aria-selected="true" href="/home">Home</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="pills-about-tab" data-bs-toggle="pill" data-bs-target="#pills-about" type="a"
+              role="tab" aria-controls="pills-about" aria-selected="false" href="/about">About Us!</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="pills-project-tab" data-bs-toggle="pill" data-bs-target="#pills-project"
+              type="a" role="tab" aria-controls="pills-project" aria-selected="false">Analysis</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="pills-quiz-tab" data-bs-toggle="pill" data-bs-target="#pills-quiz" type="a"
+              role="tab" aria-controls="pills-quiz" aria-selected="false" href="/quiz">Quiz</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="pills-forum-tab" data-bs-toggle="pill" data-bs-target="#pills-forum" type="a"
+              role="tab" aria-controls="pills-forum" aria-selected="false" href="/explore">Explore</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="a"
+              role="tab" aria-controls="pills-contact" aria-selected="false" href="/contact">Contact Us</a>
+          </li>
+        </ul>
+
+
+      </div>
+    </div>
+    <span class="">
+      {% if session.get('username') %}
+          <span class="logdisplay">
+              <div class="logname" href="#">Welcome, {{ session['username'] }}!</div>
+          </span>
+      {% else %}
+          <span class="nav-item">
+              <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+          </span>
+      {% endif %}
+        </span>
+    <button class="navbutton">
+
+
+      <a href="/" class="logout"><i class="bx bx-log-out-circle"></i>Logout</a>
+    </button>
+    <!-- <button class="navbutton"><a href="admin.html">Admin</a></button> -->
+  </nav>
+
+  <div class="container projectcontainer">
+  
+    <!-- Form for text analysis -->
+    <form id="analysisForm" action="/analyze" method="POST">
+      <h1 class="feeltext">Express Your Feelings</h1>
+      <div class="protext">
+        <div class="container">
+          <!-- <div class="row">
+            <div class="col-sm-4">
+              <div class="field input">
+                <label for="username">Username: </label>
+                <input type="text" name="username" id="username" placeholder="enter your username" autocomplete="off"
+                  required>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="field input">
+                <label for="reg_number">Reg Number:</label>
+                <input type="text" name="reg_number" placeholder="enter your register number" required>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <label for="batch">Batch:</label><br>
+              <select name="batch" id="cars" required>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+              </select>
+            </div>
+
+          </div> -->
+        </div>
+        
+        <input class="feelinginp" id="feelingsInput" name="text" placeholder="Write your feelings here..." required></input>
+        <button type="submit" class="analyzebutton">Analyze</button>
+    </form>
+
+    <div id="results">
+      <h2 class="feeltext">Analysis Result:</h2>
+      <p><strong>Input Text:</strong> {{ text }}</p>
+      <p><strong>Sentiment:</strong> {{ sentiment }}</p>
+      <p><strong>Positivity :</strong> {{ positive_percentage }}</p>
+      <p><strong>Negativity:</strong> {{ negative_percentage }}</p>
+      <p><strong>Positive Word Count:</strong> {{ positive_count }}</p>
+      <p><strong>Stressful Word Count:</strong> {{ stressful_count }}</p>
+      <p><strong>Depressive Word Count:</strong> {{ depressive_count }}</p>
+      <p><strong>Therapist Advice:</strong> {{ therapist_advice }}</p>
+  </div>
+
+  </div>
+
+
+</div>
+
+  <script>
+       // Function to submit the form data
+    function submitForm() {
+      var username = document.getElementById('username').value;
+      var reg_number = document.getElementById('regNumber').value;
+      var batch = document.getElementById('batch').value;
+      var feelingsInput = document.getElementById('feelingsInput').value;
+
+      // Extracting sentiment, positivePercentage, negativePercentage, positiveCount, and negativeCount from the HTML elements
+      var sentiment = document.getElementById('sentiment') ? document.getElementById('sentiment').innerText : '';
+      var positive_percentage = document.getElementById('positivePercentage') ? document.getElementById('positivePercentage').innerText : '';
+      var negative_percentage = document.getElementById('negativePercentage') ? document.getElementById('negativePercentage').innerText : '';
+      var positive_count = document.getElementById('positiveCount') ? document.getElementById('positiveCount').innerText : '';
+      var negative_count = document.getElementById('negativeCount') ? document.getElementById('negativeCount').innerText : '';
+
+      console.log("Sentiment:", sentiment);
+      console.log("Positive Percentage:", positive_percentage);
+      console.log("Negative Percentage:", negative_percentage);
+      console.log("Positive Count:", positive_count);
+      console.log("Negative Count:", negative_count);
+
+      // AJAX request to send form data to PHP script
+      $.ajax({
+        type: "POST",
+        url: "http://localhost/SSFINAL/php/analysis.php",
+        data: {
+          username: username,
+          regNumber: reg_number,
+          batch: batch,
+          feelingsInput: feelingsInput,
+          sentiment: sentiment,
+          positivePercentage: positive_percentage,
+          negativePercentage: negative_percentage,
+          positiveCount: positive_count,
+          negativeCount: negative_count,
+
+        },
+        success: function (response) {
+          console.log("AJAX request successful:");
+          console.log("Response:", response);
+        },
+        error: function (xhr, status, error) {
+          console.error("Error storing analysis data:", error);
+        }
+      });
+    }
+  </script>
+   <!-- FOOTER -->
+   <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-sm-4">
+          <ul class="footer-info">
+
+            <li>
+              <h5>StudentSphere</h5>
+              <p>Vellore Institute Of Technology, Chennai</p>
+              <p>Kelambakkam-Vandalur road</p>
+              <p>Phone Number: 7200910451</p>
+            </li>
+          </ul>
+        </div>
+        <div class="col-sm-4">
+          <div class="social-media-icons">
+            <a href="https://www.instagram.com/your-instagram-handle" class="icon-instagram" target="_blank"></a>
+            <a href="https://twitter.com/your-twitter-handle" target="_blank" class="icon-twitter"></a>
+            <a href="https://www.facebook.com/your-facebook-page" target="_blank" class="icon-facebook"></a>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <ul class="help">
+            <li>
+              <h5 class="text-white">HelpDesk:</h5>
+              <p>044-20842000, 044-24800222</p>
+              <p>Student.sphere@gmail.com</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="copyr">
+          <p>&copy; StudentSphere. All rights reserved.</p>
+          <ul class="text-white">
+            <p>Visitors Count: <span id="visitorCount">0</span></p>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+
+    <script>
+      // Function to increment visitor count
+      function incrementVisitorCount() {
+        if (typeof (Storage) !== "undefined") {
+          if (localStorage.visitorCount) {
+            localStorage.visitorCount = Number(localStorage.visitorCount) + 1;
+          } else {
+            localStorage.visitorCount = 1;
+          }
+          document.getElementById("visitorCount").innerHTML = localStorage.visitorCount;
+        } else {
+          console.log("Sorry, your browser does not support web storage...");
+        }
+      }
+
+      // Call the function when the page loads
+      window.onload = function () {
+        incrementVisitorCount();
+      };
+    </script>
+  </footer>
+
+</body>
+
+</html>

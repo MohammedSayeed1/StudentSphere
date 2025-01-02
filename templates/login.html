@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/loginstyle.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>StudentSphere-Login</title>
+</head>
+
+<body>
+    <div class="container">
+        <button type="button" id="flip-btn">Student | Admin</button>
+        <div class="card">
+            <div id="back" class="cardBack"> 
+                <div class="flip-card-inner">
+                    <div class="flip-card-back" id="animatedBtn">
+                        <div class="box form-box">
+                            <header>Login - Admin</header>
+                            <form action="/login" method="post">
+                                <input type="hidden" name="login_type" value="admin"> <!-- Admin login type -->
+                                <div class="field input">
+                                    <label for="email">Email</label> <!-- Use 'email' for admin login -->
+                                    <input type="email" name="email" id="email" autocomplete="off" required>
+                                </div>
+                                <div class="field input">
+                                    <label for="password">Password</label>
+                                    <input type="password" name="password" id="password" autocomplete="off" required>
+                                </div>
+                                <div class="field">
+                                    <input type="submit" class="logbtn" name="submit" value="log in" required>
+                                </div>
+                            </form>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div id="front" class="cardFront">
+                <div class="flip-card-front">
+                    <div class="box form-box">
+                        <header>Login - Student</header>
+                        <form action="/login" method="post">
+                            <input type="hidden" name="login_type" value="student">
+                            <div class="field input">
+                                <label for="username">Username</label>
+                                <input type="text" name="username" id="username" autocomplete="off" required>
+                            </div>
+                            <div class="field input">
+                                <label for="password">Password</label>
+                                <input type="password" name="password" id="password" autocomplete="off" required>
+                            </div>
+                            <div class="field">
+                                <input type="submit" class="logbtn" name="submit" value="log in" required>
+                            </div>
+                            <div class="links">
+                                Don't have an account? <a href="/register">Sign Up Now</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const front = document.getElementById('front')
+        const back = document.getElementById('back')
+        const btn = document.getElementById('flip-btn')
+        
+        function handleFlip() {
+            front.classList.toggle('flipped')
+            back.classList.toggle('flipped')
+        }
+        
+        btn.addEventListener('click', handleFlip)
+    </script>
+    <script>
+        // Check if error flag is true and display alert
+        {% if error %}
+            alert("Incorrect email or password.");
+        {% endif %}
+    </script>
+</body>
+</html>

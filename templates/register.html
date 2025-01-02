@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/loginstyle.css">
+    <link href="/script.js">
+    <title>StudentSphere-Register</title>
+</head>
+<body>
+    <div class="container">
+        <div class="box form-box">
+    <header>Sign Up</header>
+    <form action="/register" method="post">
+        <div class="field input">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" autocomplete="off" required>
+        </div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class="flashes">
+      {% for category, message in messages %}
+        <span class="alert alert-{{ category }}">{{ message }}</span>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+
+        <div class="field input">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" autocomplete="off" required>
+        </div>
+        
+        <div class="field input">
+            <label for="reg_number">Registration Number:</label>
+            <input type="text" name="reg_number" required>
+        </div>
+        <div class="field input">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" autocomplete="off" required>
+        </div>
+        <label for="batch">Batch:</label>
+<select name="batch" id="cars" required>
+  <option value="2021">2021</option>
+  <option value="2022">2022</option>
+  <option value="2023">2023</option>
+  <option value="2024">2024</option>
+</select>
+
+        <div class="field">
+            
+            <input type="submit" class="btn" name="submit" value="Register" required>
+        </div>
+        <div class="links">
+            Already a member? <a href="/">Log In</a>
+        </div>
+    </form>
+</div>
+
+</div>
+</body>
+</html>

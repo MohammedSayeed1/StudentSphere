@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+   
+ 
+ <!-- Bootstrap JS (jQuery and Popper.js are also required) -->
+ <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>StudentSphere-Quiz</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary menubar">
+        <div class="container-fluid navdiv">
+    
+          <a class="navbar-brand"  >𝑆𝑡𝑢𝑑𝑒𝑛𝑡𝑆𝑝ℎ𝑒𝑟𝑒</a>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+              <!-- <img src="/assests/img/logo1.jpg" alt="" height="25" style="margin-top: 20px;"> -->
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" role="tab"
+                  aria-controls="pills-home" aria-selected="true" href="/home">Home</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" id="pills-about-tab" data-bs-toggle="pill" data-bs-target="#pills-about" type="a"
+                  role="tab" aria-controls="pills-about" aria-selected="false"  href="/about">About Us!</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" id="pills-project-tab" data-bs-toggle="pill" data-bs-target="#pills-project" type="a"
+                  role="tab" aria-controls="pills-project" aria-selected="false" href="/project">Analysis</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="pills-quiz-tab" data-bs-toggle="pill" data-bs-target="#pills-quiz" type="a"
+                  role="tab" aria-controls="pills-quiz" aria-selected="false" href="/quiz">Quiz</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" id="pills-forum-tab" data-bs-toggle="pill" data-bs-target="#pills-forum" type="a"
+                  role="tab" aria-controls="pills-forum" aria-selected="false" href="/explore">Explore</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="a"
+                  role="tab" aria-controls="pills-contact" aria-selected="false" href="/contact">Contact Us</a>
+              </li>
+            </ul>
+    
+    
+          </div>
+        </div>
+        <span class="">
+          {% if session.get('username') %}
+              <span class="logdisplay">
+                  <div class="logname" href="#">Welcome, {{ session['username'] }}!</div>
+              </span>
+          {% else %}
+              <span class="nav-item">
+                  <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+              </span>
+          {% endif %}
+            </span>
+        <button class="navbutton">
+          
+    
+          <a href="/" class="logout"><i class="bx bx-log-out-circle"></i>Logout</a>
+        </button>
+        <!-- <button class="navbutton"><a href="admin.html">Admin</a></button> -->
+      </nav>
+    <div class="zzz" >
+        <div class="container1">
+          <h2 style="font-style: italic;"> Quiz</h2><br>
+          <form id="quizForm" action="/quiz" method="POST">
+
+            <div class="field">
+              <label for="q1">Question 1: I have trouble making decisions, even about small things:</label><br>
+              <input type="radio" name="q1" value="Rarely" required> Rarely<br>
+              <input type="radio" name="q1" value="Sometimes" required> Sometimes<br>
+              <input type="radio" name="q1" value="Often" required> Often<br>
+              <input type="radio" name="q1" value="Most of the time" required> Most of the time<br>
+              <input type="radio" name="q1" value="All the time" required> All the time<br><br>
+          </div>
+          
+          <div class="field">
+              <label for="q2">Question 2: I have lost interest in activities I used to enjoy:</label><br>
+              <input type="radio" name="q2" value="Rarely" required> Rarely<br>
+              <input type="radio" name="q2" value="Sometimes" required> Sometimes<br>
+              <input type="radio" name="q2" value="Often" required> Often<br>
+              <input type="radio" name="q2" value="Most of the time" required> Most of the time<br>
+              <input type="radio" name="q2" value="All the time" required> All the time<br><br>
+          </div>
+          
+          <div class="field">
+              <label for="q3">Question 3: I feel worthless or guilty about things I shouldn't:</label><br>
+              <input type="radio" name="q3" value="Rarely" required> Rarely<br>
+              <input type="radio" name="q3" value="Sometimes" required> Sometimes<br>
+              <input type="radio" name="q3" value="Often" required> Often<br>
+              <input type="radio" name="q3" value="Most of the time" required> Most of the time<br>
+              <input type="radio" name="q3" value="All the time" required> All the time<br><br>
+          </div>
+          
+          <div class="field">
+              <label for="q4">Question 4: I have trouble sleeping, either too much or too little:</label><br>
+              <input type="radio" name="q4" value="Rarely" required> Rarely<br>
+              <input type="radio" name="q4" value="Sometimes" required> Sometimes<br>
+              <input type="radio" name="q4" value="Often" required> Often<br>
+              <input type="radio" name="q4" value="Most of the time" required> Most of the time<br>
+              <input type="radio" name="q4" value="All the time" required> All the time<br><br>
+          </div>
+          
+          <div class="field">
+              <label for="q5">Question 5: I feel like my emotions are numb:</label><br>
+              <input type="radio" name="q5" value="Rarely" required> Rarely<br>
+              <input type="radio" name="q5" value="Sometimes" required> Sometimes<br>
+              <input type="radio" name="q5" value="Often" required> Often<br>
+              <input type="radio" name="q5" value="Most of the time" required> Most of the time<br>
+              <input type="radio" name="q5" value="All the time" required> All the time<br><br>
+          </div>
+          
+          <div class="field">
+              <label for="q6">Question 6: I feel irritable and get annoyed easily:</label><br>
+              <input type="radio" name="q6" value="Rarely" required> Rarely<br>
+              <input type="radio" name="q6" value="Sometimes" required> Sometimes<br>
+              <input type="radio" name="q6" value="Often" required> Often<br>
+              <input type="radio" name="q6" value="Most of the time" required> Most of the time<br>
+              <input type="radio" name="q6" value="All the time" required> All the time<br><br>
+          </div>
+          
+          <div class="field">
+              <label for="q7">Question 7: I feel disconnected from others or my surroundings:</label><br>
+              <input type="radio" name="q7" value="Rarely" required> Rarely<br>
+              <input type="radio" name="q7" value="Sometimes" required> Sometimes<br>
+              <input type="radio" name="q7" value="Often" required> Often<br>
+              <input type="radio" name="q7" value="Most of the time" required> Most of the time<br>
+              <input type="radio" name="q7" value="All the time" required> All the time<br><br>
+          </div>
+          
+          <div class="field">
+              <label for="q8">Question 8: I feel a lack of motivation to initiate or complete tasks:</label><br>
+              <input type="radio" name="q8" value="Rarely" required> Rarely<br>
+              <input type="radio" name="q8" value="Sometimes" required> Sometimes<br>
+              <input type="radio" name="q8" value="Often" required> Often<br>
+              <input type="radio" name="q8" value="Most of the time" required> Most of the time<br>
+              <input type="radio" name="q8" value="All the time" required> All the time<br><br>
+          </div>
+          
+          <div class="field">
+              <label for="q9">Question 9: I feel emotionally drained or burnt out:</label><br>
+              <input type="radio" name="q9" value="Rarely" required> Rarely<br>
+              <input type="radio" name="q9" value="Sometimes" required> Sometimes<br>
+              <input type="radio" name="q9" value="Often" required> Often<br>
+              <input type="radio" name="q9" value="Most of the time" required> Most of the time<br>
+              <input type="radio" name="q9" value="All the time" required> All the time<br><br>
+          </div>
+          
+          <div class="field">
+              <label for="q10">Question 10: I feel restless or have trouble sitting still:</label><br>
+              <input type="radio" name="q10" value="Rarely" required> Rarely<br>
+              <input type="radio" name="q10" value="Sometimes" required> Sometimes<br>
+              <input type="radio" name="q10" value="Often" required> Often<br>
+              <input type="radio" name="q10" value="Most of the time" required> Most of the time<br>
+              <input type="radio" name="q10" value="All the time" required> All the time<br><br>
+          </div>
+        
+            <div class="field">
+                <input type="submit" class="button" value="Submit">
+            </div>
+        </form>
+        
+        </div>
+      </div>
+      <script>
+        function submitQuiz() {
+          // Check if all questions have been answered
+          var allQuestionsAnswered = true;
+          var form = document.getElementById("quizForm");
+          var questions = form.getElementsByTagName("input");
+          for (var i = 1; i <= 5; i++) { // Assuming there are 5 questions
+            var answered = false;
+            for (var j = 0; j < questions.length; j++) {
+              if (questions[j].type === "radio" && questions[j].name === "q" + i && questions[j].checked) {
+                answered = true;
+                break;
+              }
+            }
+            if (!answered) {
+              allQuestionsAnswered = false;
+              break;
+            }
+          }
+      
+          // If all questions are answered, submit the form
+          if (allQuestionsAnswered) {
+            // You can send the answers to your backend for sentiment analysis
+            
+            // For now, let's just simulate sending data to backend by clearing the form
+      
+            // Clear the form (remove selected radio buttons)
+            for (var i = 0; i < questions.length; i++) {
+              if (questions[i].type === "radio" && questions[i].checked) {
+                questions[i].checked = false;
+              }
+            }
+      
+            // Show success message
+            var container = document.querySelector(".container1");
+            container.innerHTML = "<h2>Answers saved successfully!</h2>";
+          } else {
+            alert("Please answer all questions before submitting.");
+          }
+        }
+      </script>
+         <footer class="site-footer">
+          <div class="container">
+            <div class="row">
+    
+              <div class="col-sm-4">
+                <ul class="footer-info">
+    
+                  <li>
+                    <h5>StudentSphere</h5>
+                    <p>Vellore Institute Of Technology, Chennai</p>
+                    <p>Kelambakkam-Vandalur road</p>
+                    <p>Phone Number: 7200910451</p>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-sm-4">
+                <div class="social-media-icons">
+                  <a href="https://www.instagram.com/your-instagram-handle" target="_blank" class="icon-instagram"></a>
+                  <a href="https://twitter.com/your-twitter-handle" target="_blank" class="icon-twitter"></a>
+                  <a href="https://www.facebook.com/your-facebook-page" target="_blank" class="icon-facebook"></a>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <ul class="help">
+                  <li>
+                    <h5 class="text-white">HelpDesk:</h5>
+                    <p>044-20842000, 044-24800222</p>
+                    <p>Student.sphere@gmail.com</p>
+                  </li>
+                </ul>
+              </div>
+    
+              <div class=" text-center copyr">
+                <p>&copy; StudentSphere. All rights reserved.</p>
+                <ul class="text-white">
+                  <p>Visitors Count: <span id="visitorCount">0</span></p>
+                </ul>
+              </div>
+            </div>
+          </div>
+    
+    
+    
+          <script>
+            // Function to increment visitor count
+            function incrementVisitorCount() {
+              if (typeof (Storage) !== "undefined") {
+                if (localStorage.visitorCount) {
+                  localStorage.visitorCount = Number(localStorage.visitorCount) + 1;
+                } else {
+                  localStorage.visitorCount = 1;
+                }
+                document.getElementById("visitorCount").innerHTML = localStorage.visitorCount;
+              } else {
+                console.log("Sorry, your browser does not support web storage...");
+              }
+            }
+    
+            // Call the function when the page loads
+            window.onload = function () {
+              incrementVisitorCount();
+            };
+          </script>
+        </footer>
+</body>
+</html>
