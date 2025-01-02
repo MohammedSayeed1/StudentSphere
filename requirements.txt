@@ -45,7 +45,7 @@ dash-html-components==2.0.0
 dash-table==5.0.0
 dask==2024.2.1
 dataclasses-json==0.6.7
-dataprep==0.4.1
+
 datasketch==1.6.4
 datasketches==5.0.1
 debugpy==1.6.7
@@ -239,7 +239,6 @@ pyttsx3==2.90
 pytweening==1.0.7
 pytz==2024.1
 pytz-deprecation-shim==0.1.0.post0
-PyWavelets==1.4.1
 pywin32==306
 pywinpty==2.0.10
 PyYAML==6.0
