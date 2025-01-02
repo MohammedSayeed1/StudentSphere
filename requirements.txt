@@ -3,5 +3,5 @@ textblob==0.17.1
 nltk==3.7
 flask_pymongo==2.3.0
 werkzeug==2.2.3
-langchain-ollama==0.0.1
-langchain-core==0.0.1
+langchain-ollama==0.1.0
+langchain-core==0.2.2
