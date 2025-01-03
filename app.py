@@ -12,6 +12,10 @@ from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
 from datetime import datetime
 from urllib.parse import quote_plus
+import nltk
+
+# Ensure necessary NLTK resources are downloaded
+nltk.download('opinion_lexicon')
 
 app = Flask(__name__)
 app.config["SESSION_TYPE"] = "filesystem"
