@@ -16,15 +16,21 @@ from urllib.parse import quote_plus
 app = Flask(__name__)
 app.config["SESSION_TYPE"] = "filesystem"
 
-# MongoDB Atlas client setup
-
-
-# MongoDB Atlas URI
 app.config["MONGO_URI"] = "mongodb+srv://mohammedSayeedAdmin:S1a2y3e4e5d6@studentsphere.remkk.mongodb.net/studentsphere?retryWrites=true&w=majority"
+
+# Add necessary MongoDB connection options
+app.config["MONGO_CONNECT"] = False  # Prevent PyMongo from establishing connections on app initialization
+app.config["MONGO_TLS"] = True       # Enable TLS for secure connections
 
 # Initialize PyMongo
 mongo = PyMongo(app)
 
+# Test MongoDB connection
+try:
+    mongo.cx.admin.command("ping")
+    print("MongoDB connection successful!")
+except Exception as e:
+    print(f"Error connecting to MongoDB: {e}")
 
 # Define the upload folder and allowed extensions
 UPLOAD_FOLDER = 'static/uploads/'
