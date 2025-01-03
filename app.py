@@ -16,7 +16,10 @@ from urllib.parse import quote_plus
 app = Flask(__name__)
 app.config["SESSION_TYPE"] = "filesystem"
 
-app.config["MONGO_URI"] = "mongodb+srv://mohammedSayeedAdmin:S1a2y3e4e5d6@studentsphere.remkk.mongodb.net/studentsphere?retryWrites=true&w=majority"
+app.config["MONGO_URI"] = (
+    "mongodb+srv://mohammedSayeedAdmin:S1a2y3e4e5d6@studentsphere.remkk.mongodb.net/studentsphere"
+    "?retryWrites=true&w=majority&tls=true&tlsAllowInvalidCertificates=false"
+)
 
 # Add necessary MongoDB connection options
 app.config["MONGO_CONNECT"] = False  # Prevent PyMongo from establishing connections on app initialization
