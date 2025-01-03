@@ -17,6 +17,10 @@ import nltk
 # Ensure necessary NLTK resources are downloaded
 nltk.download('opinion_lexicon')
 
+nltk_data_path = os.path.join(os.getcwd(), 'nltk_data')
+nltk.data.path.append(nltk_data_path)
+nltk.download('opinion_lexicon', download_dir=nltk_data_path)
+
 app = Flask(__name__)
 app.config["SESSION_TYPE"] = "filesystem"
 
